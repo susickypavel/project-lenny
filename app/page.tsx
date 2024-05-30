@@ -1,21 +1,29 @@
 "use client";
 
-import { Button } from "@/aria/Button";
 import { useDateFormatter } from "react-aria";
 
+import { Select, SelectItem } from "@/aria/Select";
+import { useLocale } from "@/components/providers";
+
 export default function Home() {
+	const { locale, setLocale } = useLocale();
 	let formatter = useDateFormatter();
 
 	return (
 		<main className="flex items-center justify-center h-screen">
 			<p>{formatter.format(new Date())}</p>
-			<Button
-				onPress={() => {
-					console.log("XD");
+			<Select
+				label="Language"
+				defaultSelectedKey={locale}
+				onSelectionChange={(key) => {
+					if (key === "en" || key === "cs") {
+						setLocale(key);
+					}
 				}}
 			>
-				Hello, World!
-			</Button>
+				<SelectItem id="en">English</SelectItem>
+				<SelectItem id="cs">Czech</SelectItem>
+			</Select>
 		</main>
 	);
 }
