@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
+import { Document } from "@/components/document";
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -14,9 +13,5 @@ type RootLayoutProps = Readonly<{
 }>;
 
 export default function RootLayout({ children }: RootLayoutProps) {
-	return (
-		<html lang="en">
-			<body className={inter.className}>{children}</body>
-		</html>
-	);
+	return <Document>{children}</Document>;
 }
