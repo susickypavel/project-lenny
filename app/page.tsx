@@ -2,8 +2,8 @@
 
 import { useDateFormatter } from "react-aria";
 
-import { Select, SelectItem } from "@/aria/Select";
 import { useLocale } from "@/components/providers";
+import { Select, SelectItem } from "@/aria/Select";
 
 export default function Home() {
 	const { locale, setLocale } = useLocale();
